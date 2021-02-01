@@ -1,28 +1,36 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+      <div class="container-wide">
+        <!-- <Form></Form>
+        <List></List>     -->
+        <TodoHeader></TodoHeader>
+        <TodoBody></TodoBody>
+      </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+// import Form from "./components/Form"
+// import List from "./components/List"
+import TodoHeader from "./components/molecules/TodoHeader";
+import TodoBody from "./components/molecules/TodoBody"
 export default {
-  name: "App",
+  name: 'App',
   components: {
-    HelloWorld
+    // Form,
+    // List,
+    TodoHeader,
+    TodoBody
   }
-};
+}
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
+  .container-wide{
+    max-width: 500px;
+    margin: 5rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    // flex-direction: column;
+   
+  }
 </style>
