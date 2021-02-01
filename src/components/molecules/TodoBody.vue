@@ -18,19 +18,19 @@ export default {
                 {   
                     id: 1,
                     subject: 'Bajar al perro',
-                    date: '2020-02-01',
+                    created_at: '2020-02-01',
                     done: false
                 },
                 {   
                     id: 2,
                     subject: 'Comprar verdura',
-                    date: '2020-02-02',
+                    created_at: '2020-02-02',
                     done: false
                 },
                 {   
                     id: 3,
                     subject: 'Hacer una todo list',
-                    date: '2020-02-02',
+                    created_at: '2020-02-02',
                     done: false
                 }
                 

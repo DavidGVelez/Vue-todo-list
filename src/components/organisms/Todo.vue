@@ -15,6 +15,8 @@ export default {
 
     TodoHeader,
     TodoBody
+  },
+  methods: {
   }
 }
 </script>

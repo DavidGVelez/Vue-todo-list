@@ -2,12 +2,11 @@
     <div class="todo-header">
      
         <DateDisplayer></DateDisplayer>
-        
-       
-        
-            <PlusIcon
-            class="button"
-            ></PlusIcon>
+
+        <PlusIcon
+            @click="addTodo"
+            class="button">
+        </PlusIcon>
         
        
     </div>
@@ -22,6 +21,11 @@ import DateDisplayer from "../atoms/DateDisplayer";
 export default {
     components: {
          DateDisplayer, PlusIcon
+    },
+    methods: {
+        addTodo(){
+            console.log('added')
+        }
     }
 }
 </script>

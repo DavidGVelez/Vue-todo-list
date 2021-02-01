@@ -7,10 +7,12 @@
 <script>
 
 import Todo from "./components/organisms/Todo"
+
 export default {
   name: 'App',
   components: {
     Todo,
+
   }
 }
 </script>
@@ -24,3 +26,5 @@ export default {
     background-color: gray;
   }
 </style>
+
+

@@ -1,61 +1,96 @@
 <template>
     <li>
-        <label>
-            <input type="checkbox"
-                @change="changeTodoStatus"
-                :checked="done"
-                :name="item.id" 
-                :id="item.id"/>
-            <span :class="[this.done ? 'done' : null]">{{item.subject}}</span>
-        </label>
-        <div class="action-wrapper">
-        
-                <PencilOutlineIcon
-                    class="button"
-                    @click="editTodo"
-                ></PencilOutlineIcon>
-           
-                <TrashCanOutlineIcon
-                    class="button"
-                    @click="deleteTodo">
-                ></TrashCanOutlineIcon>
-          
-        </div>
-      
-        
-       
+        <transition name="fade" mode="out-in">
+            <div v-if="!edit" class="row-wrapper" :key="1">
+                <label>
+                    <input type="checkbox"
+                        @change="changeTodoStatus"
+                        :checked="done"
+                        :name="item.id" 
+                        :id="item.id"/>
+                        <span :class="[this.done ? 'done' : null]">{{item.subject}}</span>
+                </label>
+                <div class="action-wrapper">
+            
+                    <PencilOutlineIcon
+                        class="button"
+                        @click="toogleEdit">
+                    </PencilOutlineIcon>
+            
+                    <TrashCanOutlineIcon
+                        class="button"
+                        @click="toogleDelete">
+                    </TrashCanOutlineIcon>
+            
+                </div>
+            </div>
+            <div v-else class="row-wrapper" :key="2">
+
+                <input type="text" name="subject" :id="item.id" :value="item.subject">
+
+                <div class="action-wrapper">
+            
+                    <CheckIcon
+                        class="button"
+                        @click="editTodo">
+                    </CheckIcon>
+                    
+                </div>
+            </div>
+        </transition>
     </li>
 </template>
 
 <script>
     import PencilOutlineIcon from "vue-material-design-icons/PencilOutline"
     import TrashCanOutlineIcon from "vue-material-design-icons/TrashCanOutline"
+    import CheckIcon from "vue-material-design-icons/Check"
 
 export default {
     props: ['item'],
-    components: {PencilOutlineIcon,TrashCanOutlineIcon},
+    components: {PencilOutlineIcon,TrashCanOutlineIcon,CheckIcon},
 
     data(){
         return {
             done: this.item.done,
+            edit: false
         }
     },
     methods: {
         changeTodoStatus() {
             this.done = !this.done
         },
-        deleteTodo(){
+        toogleDelete(){
             console.log('delete')
         },
+        toogleEdit(){
+            this.edit = !this.edit
+        },
         editTodo(){
-            console.log('edit')
+            console.log('edited');
+            this.toogleEdit();
+        },
+        deleteTodo(){
+            console.log('deleted'),
+            this.toogleDelete();
         }
     },
 }
 </script>
 
 <style lang="scss">
-    li{
+
+    .fade-enter-active,
+    .fade-leave-active {
+    transition: opacity 0.5s ease;
+    }
+
+    .fade-enter-from,
+    .fade-leave-to {
+        opacity: 0;
+    }
+
+    .row-wrapper{
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -65,6 +100,11 @@ export default {
         margin: 0;
         margin-right: 1rem;
        
+    }
+    input[type="text"]{
+        padding:0;
+        border: none;
+        border-bottom: 1px solid black;
     }
     .done {
         text-decoration: line-through;
@@ -87,5 +127,8 @@ export default {
         & :last-child{
             margin-right: 0rem;
         }
-    }
+
+    
+
+}
 </style>
