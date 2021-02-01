@@ -1,11 +1,11 @@
 <template>
-    <section>
+    <div class="todo-body">
         <ul v-for="item in items" :key="item.id">
                 <TodoRow
                     v-bind:item="item"
                 ></TodoRow>
         </ul>
-    </section>
+    </div>
 </template>
 
 <script>
@@ -41,7 +41,7 @@ export default {
 </script>
 
 <style lang="scss">
-    section {
+    .todo-body {
         width: 100%;
         padding: 2rem 1.5rem;
         background-color: #FCFCFF;

@@ -1,24 +1,16 @@
 <template>
-      <div class="container-wide">
-        <!-- <Form></Form>
-        <List></List>     -->
-        <TodoHeader></TodoHeader>
-        <TodoBody></TodoBody>
-      </div>
+     <main class="container-wide">
+          <Todo></Todo>
+      </main>
 </template>
 
 <script>
-// import Form from "./components/Form"
-// import List from "./components/List"
-import TodoHeader from "./components/molecules/TodoHeader";
-import TodoBody from "./components/molecules/TodoBody"
+
+import Todo from "./components/organisms/Todo"
 export default {
   name: 'App',
   components: {
-    // Form,
-    // List,
-    TodoHeader,
-    TodoBody
+    Todo,
   }
 }
 </script>
@@ -26,11 +18,9 @@ export default {
 <style lang="scss">
 
   .container-wide{
-    max-width: 500px;
-    margin: 5rem auto;
+
     display: flex;
-    flex-wrap: wrap;
-    // flex-direction: column;
-   
+    height: 100vh;
+    background-color: gray;
   }
 </style>

@@ -9,15 +9,17 @@
             <span :class="[this.done ? 'done' : null]">{{item.subject}}</span>
         </label>
         <div class="action-wrapper">
-            <Button
-            @click="editTodo">
-                <PencilOutlineIcon></PencilOutlineIcon>
-            </Button>
+        
+                <PencilOutlineIcon
+                    class="button"
+                    @click="editTodo"
+                ></PencilOutlineIcon>
            
-            <Button
-            @click="deleteTodo">
-                <TrashCanOutlineIcon></TrashCanOutlineIcon>
-            </Button>
+                <TrashCanOutlineIcon
+                    class="button"
+                    @click="deleteTodo">
+                ></TrashCanOutlineIcon>
+          
         </div>
       
         
@@ -70,8 +72,16 @@ export default {
     .action-wrapper{
         display: flex;
         
-        & Button{
-            margin-right: 2rem
+        & .button{
+            margin-right: 2rem;
+            cursor: pointer;
+            outline: none;
+            padding: .5rem;
+            border-radius: 50%;
+            border: none;
+            color: white;
+            text-align: center;
+            background-color: #F77374;
             
         }
         & :last-child{

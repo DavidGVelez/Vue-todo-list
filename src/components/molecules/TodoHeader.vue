@@ -1,36 +1,50 @@
 <template>
-    <header>
+    <div class="todo-header">
      
         <DateDisplayer></DateDisplayer>
         
        
-        <Button>
-            <PlusIcon></PlusIcon>
-        </Button>
+        
+            <PlusIcon
+            class="button"
+            ></PlusIcon>
+        
        
-    </header>
+    </div>
 </template>
 
 <script>
 import PlusIcon from "vue-material-design-icons/Plus";
 
-import Button from "../atoms/Button";
+
 import DateDisplayer from "../atoms/DateDisplayer";
 
 export default {
     components: {
-        Button, DateDisplayer, PlusIcon
+         DateDisplayer, PlusIcon
     }
 }
 </script>
 
 <style lang="scss"> 
-    header{
+    .todo-header{
         width: 100%;
         display: flex;
         padding: 2rem 1.5rem;
         background-color: #FCFCFF;
         border-bottom: 1px solid #f0eded;
         justify-content: space-between;
+    }
+    
+    .button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            padding: .5rem;
+            border-radius: 50%;
+            color: white;
+            text-align: center;
+            background-color: #F77374;
     }
 </style>
